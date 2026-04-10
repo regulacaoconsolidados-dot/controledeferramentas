@@ -3,241 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ferramentas Administrativas - Diretoria de Regulação em Saúde</title>
-
+  <title>Ferramentas Administrativas - Diretoria de Regulação do Acesso</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-  <style>
-    /* Adicionei um CSS básico para garantir a estrutura */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      color: #1f2937;
-      line-height: 1.5;
-    }
-
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    .header {
-      background: linear-gradient(135deg, #1e3a8a, #1e40af);
-      color: white;
-      padding: 25px 0;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .logo-section i {
-      font-size: 48px;
-      color: #93c5fd;
-    }
-
-    .main-title {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: #bfdbfe;
-      margin-bottom: 8px;
-    }
-
-    .h-meta {
-      font-size: 14px;
-      color: #e2e8f0;
-    }
-
-    .right-section {
-      text-align: right;
-    }
-
-    .slogan {
-      font-style: italic;
-      font-size: 18px;
-      color: #fef9c3;
-      max-width: 400px;
-    }
-
-    /* Search */
-    .search-section {
-      margin: 30px 0;
-    }
-
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: white;
-      border-radius: 12px;
-      padding: 8px 16px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      max-width: 500px;
-      margin: 0 auto;
-    }
-
-    .search-box i {
-      color: #9ca3af;
-      font-size: 20px;
-      margin-right: 12px;
-    }
-
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      font-size: 16px;
-      padding: 12px 0;
-    }
-
-    /* Categories Grid */
-    .categories-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      margin-bottom: 40px;
-    }
-
-    .category-section {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    }
-
-    .category-title {
-      font-size: 22px;
-      font-weight: 600;
-      color: #1e3a8a;
-      margin-bottom: 20px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .category-title i {
-      font-size: 24px;
-    }
-
-    .links-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
-    }
-
-    .link-button {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 16px;
-      background-color: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      color: #1e293b;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 14px;
-    }
-
-    .link-button:hover {
-      background-color: #1e3a8a;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
-    }
-
-    .link-button i {
-      font-size: 20px;
-      width: 24px;
-      text-align: center;
-    }
-
-    .link-button:hover i {
-      color: white;
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #1f2937;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 40px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .logo-section {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      .right-section {
-        text-align: center;
-      }
-      
-      .slogan {
-        margin: 0 auto;
-      }
-      
-      .links-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <header class="header">
     <div class="container">
       <div class="header-content">
         <div class="logo-section">
           <i class="fas fa-hospital"></i>
-
           <div class="title-section">
             <h1 class="main-title">Ferramentas Administrativas</h1>
-
-            <!-- Textos abaixo do título (conforme pedido) -->
             <p class="subtitle">Diretoria de Regulação do Acesso</p>
             <div class="h-meta">
-             Superintendente: <b style="color:#bfdbfe">Yara Ariane M.S.Souza</b>
-             &nbsp;•&nbsp; Diretora: <b style="color:#bfdbfe">Paloma Morais</b>
-             &nbsp;•&nbsp; Desenvolvido por <b style="color:#bfdbfe">Ana P. A. Silva &mdash; Matric. 201704</b>
+              Superintendente: <b style="color:#bfdbfe">Yara Ariane M.S.Souza</b>
+              &nbsp;•&nbsp; Diretora: <b style="color:#bfdbfe">Paloma Morais</b>
+              &nbsp;•&nbsp; Desenvolvido por <b style="color:#bfdbfe">Ana P. A. Silva — Matric. 201704</b>
             </div>
           </div>
         </div>
-
         <div class="right-section">
           <div class="slogan">
             <p>"Nenhum de nós é tão bom quanto todos nós juntos!"</p>
@@ -249,403 +35,183 @@
 
   <main class="main-content">
     <div class="container">
-
-      <div class="search-section">
-        <div class="search-box">
+      <!-- SEÇÃO DE PESQUISA CENTRALIZADA -->
+      <div class="global-search-section">
+        <div class="search-box centered-search">
           <i class="fas fa-search"></i>
-          <input type="text" id="searchInput" placeholder="Buscar ferramenta..." />
+          <input type="text" class="global-search-input" placeholder="Buscar ferramentas, painéis ou documentos...">
         </div>
       </div>
 
-      <div class="categories-grid">
+      <div class="tabs-container">
+        <div class="tabs-nav">
+          <button class="tab-btn active" data-tab="oci">
+            <i class="fas fa-stethoscope"></i> OCI
+          </button>
+          <button class="tab-btn" data-tab="consultas">
+            <i class="fas fa-user-md"></i> Consultas Especializadas
+          </button>
+          <button class="tab-btn" data-tab="cirurgia">
+            <i class="fas fa-procedures"></i> Cirurgia Eletiva
+          </button>
+          <button class="tab-btn" data-tab="exames">
+            <i class="fas fa-microscope"></i> Média Complexidade (Exames)
+          </button>
+          <button class="tab-btn" data-tab="cardiologia">
+            <i class="fas fa-heartbeat"></i> Cardiologia
+          </button>
+        </div>
 
-         <!-- OCI -->
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-stethoscope"></i>
-            OCI
-          </h2>
-
-         <div class="links-grid">
-            <a href="https://regulacaoconsolidados-dot.github.io/ociconsolidado/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Consolidado - OCI</span>
-            </a>
-
-             <a href="https://prefeituracontagem-my.sharepoint.com/:x:/r/personal/hassan_zibaoui_contagem_mg_gov_br/_layouts/15/Doc.aspx?sourcedoc=%7Bd7b85dc9-61af-4ea9-bb7f-b542e5c4d850%7D&action=default&CID=6ac5c827-af01-49ea-9fa3-689fed995aa7&_SRM=2%3AE%3A10" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Banco de Dados OCI </span>
-            </a>
-
-             <a href="https://docs.google.com/spreadsheets/d/1vjdotHMOE1gn4Wo45WURx0JCn7l8zP0BQpaVs3WDrw4/edit?gid=233267268#gid=233267268" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Banco de Dados OCI Cardiologia</span>
-            </a>
-            
-            <a href="https://docs.google.com/spreadsheets/d/1G1YHRyt4ILeYMAM-yK_eYZi4wtHaMqwnuQWDeihhmIA/edit?gid=220053799#gid=220053799" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Banco de Dados OCI Útero </span>
-            </a>
-
-              <a href="https://docs.google.com/spreadsheets/d/1cQzwM6L9omcZVG7routPTSE3fZSQId31w-A6y4Sc24c/edit?gid=621858947#gid=621858947" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Banco de Dados OCI Mama</span>
-            </a>
-
-            <a href="https://docs.google.com/spreadsheets/d/1_SEJ1hExiusM4y4V5leq-t7huI-GaTqOLZZxlB6_x7A/edit?gid=0#gid=0" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Banco de Dados OCI Cardiologia Monitoramento Santa Rita</span>
-            </a>
+        <!-- ABA OCI -->
+        <div class="tab-content active" id="tab-oci">
+          <div class="categories-grid">
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-chart-pie"></i> Painél OCI</h2>
+              <div class="links-grid">
+                <a href="https://regulacaoconsolidados-dot.github.io/ociconsolidado/" class="link-button primary-button" target="_blank" rel="noopener">
+                  <i class="fas fa-chart-bar"></i><span>Painél OCI</span>
+                </a>
+                <a href="https://docs.google.com/spreadsheets/d/1BONeij455aKawVr1iyskMLAJMKeBHzWmUZp_E-TDUWo/edit?gid=2108990586#gid=2108990586" class="link-button" target="_blank" rel="noopener">
+                  <i class="fas fa-database"></i><span>Banco de dados que alimenta o painél</span>
+                </a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-database"></i> Banco de Dados - Consolidar OCI</h2>
+              <div class="links-grid">
+                <a href="https://prefeituracontagem-my.sharepoint.com/:x:/r/personal/hassan_zibaoui_contagem_mg_gov_br/_layouts/15/Doc.aspx?sourcedoc=%7Bd7b85dc9-61af-4ea9-bb7f-b542e5c4d850%7D&action=default&CID=6ac5c827-af01-49ea-9fa3-689fed995aa7&_SRM=2%3AE%3A10" class="link-button" target="_blank" rel="noopener"><i class="fas fa-table"></i><span>Planilha OCI</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1vjdotHMOE1gn4Wo45WURx0JCn7l8zP0BQpaVs3WDrw4/edit?gid=233267268#gid=233267268" class="link-button" target="_blank" rel="noopener"><i class="fas fa-heart"></i><span>OCI Cardiologia 1° versão</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1vjdotHMOE1gn4Wo45WURx0JCn7l8zP0BQpaVs3WDrw4/edit?gid=233267268#gid=233267268" class="link-button" target="_blank" rel="noopener"><i class="fas fa-heart"></i><span>OCI Cardiologia 2026</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1cQzwM6L9omcZVG7routPTSE3fZSQId31w-A6y4Sc24c/edit?gid=621858947#gid=621858947" class="link-button" target="_blank" rel="noopener"><i class="fas fa-female"></i><span>OCI Mama 1° versão</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1U14Nf5EOiz8PI5H6tnYZAUeZzfUM43unywXFEwWBTAQ/edit" class="link-button" target="_blank" rel="noopener"><i class="fas fa-female"></i><span>OCI Mama 2026</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1G1YHRyt4ILeYMAM-yK_eYZi4wtHaMqwnuQWDeihhmIA/edit" class="link-button" target="_blank" rel="noopener"><i class="fas fa-uterus"></i><span>OCI Utero 1° versão</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/17ifFIdWqHq3COeEBJifq6keumcWz-ppr9d4uSPhCBow/edit" class="link-button" target="_blank" rel="noopener"><i class="fas fa-uterus"></i><span>OCI Utero 2026</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1PAaIUxgFU8CE3pFGzHG4OCAdtSHNrVIXc8suaPAXI50/edit" class="link-button" target="_blank" rel="noopener"><i class="fas fa-bone"></i><span>OCI Ortopedia</span></a>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
 
-       <!-- Consulta Especializada -->
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-stethoscope"></i>
-            Consulta Especializada
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/ESPECIALIDADES.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-list-ul"></i>
-              <span>Lista das Especialidades</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/resumo_fluxos.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-file-alt"></i>
-              <span>Resumo dos Fluxos/Especialidades</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/nota-tecnica" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-list-ul"></i>
-              <span>Notas Técnicas/Regulação</span>
-            </a>
+        <!-- ABA CONSULTAS ESPECIALIZADAS -->
+        <div class="tab-content" id="tab-consultas">
+          <div class="categories-grid">
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-code-branch"></i> Fluxos CMC</h2>
+              <div class="links-grid">
+                <a href="https://compartilhacmc-commits.github.io/arquivosfixos/ESPECIALIDADES.html" class="link-button" target="_blank" rel="noopener"><i class="fas fa-list"></i><span>Listas das Especialidades</span></a>
+                <a href="https://compartilhacmc-commits.github.io/arquivosfixos/resumo_fluxos.html" class="link-button" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i><span>Resumo dos Fluxos/especialidades</span></a>
+                <a href="https://portal.contagem.mg.gov.br/nota-tecnica" class="link-button" target="_blank" rel="noopener"><i class="fas fa-file-signature"></i><span>Notas técnicas Diretoria de Regulação</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-hourglass-half"></i> Painéis Pendências</h2>
+              <div class="links-grid">
+                <a href="https://compartilhacmc-commits.github.io/pendenciasgeral/" class="link-button primary-button" target="_blank" rel="noopener">
+                  <i class="fas fa-chart-bar"></i><span>Pendências Geral</span>
+                <a href="https://compartilhacmc-commits.github.io/distritoeldorado/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Eldorado</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritoeldorado/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Sede</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritovargemdasflores/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Vargem das Flores</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritonacional/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Nacional</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritoressaca/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Ressaca</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritoindustrial/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Industrial</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritopetrolandia/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Petrolândia</span></a>
+                <a href="https://compartilhacmc-commits.github.io/distritoriacho/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i><span>Pendências Riacho</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-calendar-check"></i> Painél Agendamento Geral (atualizado sempre no dia 11)</h2>
+              <div class="links-grid">
+                <a href="https://compartilhacmc-commits.github.io/consolidadoagendados/" class="link-button primary-button" target="_blank" rel="noopener">
+                  <i class="fas fa-chart-bar"></i><span>Painél Agendamento Geral</span>
+                <a href="https://docs.google.com/spreadsheets/d/14DiFK9EW36s8ntkukyhiRMJxcX0ghG5XTzWb1TwpI2Q/edit?gid=0#gid=0" class="link-button" target="_blank" rel="noopener"><i class="fas fa-database"></i><span>Banco de dados que alimenta o painél</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-calendar-alt"></i> Painél Agendamento Mês Atual e Próximo Mês (atualizado sempre no dia 11)</h2>
+              <div class="links-grid">
+                <a href="https://compartilhacmc-commits.github.io/ofertacmc/" class="link-button primary-button" target="_blank" rel="noopener">
+                  <i class="fas fa-chart-bar"></i><span>Painél Controle Agendamentos Diários</span>
+                <a href="https://docs.google.com/spreadsheets/d/1puNbYysRBj-5CY6fhnHNnYd9OH96cl7guMFBOLeYZV4/edit?gid=1698493941#gid=1698493941" class="link-button" target="_blank" rel="noopener"><i class="fas fa-database"></i><span>Banco de dados que alimenta o painél</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-sitemap"></i> Páginas CMC - Versão para os Distritos</h2>
+              <div class="links-grid">
+                <a href="https://compartilhacmc-commits.github.io/p-ginadistritoeldorado/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Eldorado</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritonacional/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Nacional</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritopetrolandia/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Petrolândia</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginasede/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Sede</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritoressaca/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Ressaca</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritoriacho/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Riacho</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritoindustrial/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Industrial</span></a>
+                <a href="https://compartilhacmc-commits.github.io/paginadistritovargem/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Distrito Vargem</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-laptop-medical"></i> Feluma</h2>
+              <div class="links-grid">
+                <a href="https://portal.contagem.mg.gov.br/imgeditor/file/Regula%C3%A7%C3%A3o/Central%20de%20marca%C3%A7%C3%A3o/NT%2025%20-%202025%20-%20Regula%C3%A7%C3%A3o%20de%20Consultas%20Especializadas%20via%20sistema%20VIVVER.pdf" class="link-button" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i><span>NT-25/2025 – Teleconsultoria Regulação</span></a>
+                <a href="https://portal.contagem.mg.gov.br/central-de-marcacao-de-consultas/" class="link-button" target="_blank" rel="noopener"><i class="fas fa-file-medical-alt"></i><span>Notas Técnicas – Diretoria de Regulação</span></a>
+                <a href="https://portal-feluma.sydle.com/home" class="link-button" target="_blank" rel="noopener"><i class="fas fa-globe"></i><span>Para Acessar a Plataforma – Clique Aqui</span></a>
+                <a href="https://www.youtube.com/watch?v=1UdBOCDlIvA" class="link-button" target="_blank" rel="noopener"><i class="fab fa-youtube"></i><span>Para Assistir o Tutorial – Youtube (3min.)</span></a>
+                <a href="https://forms.office.com/pages/responsepage.aspx?id=6TkneO0BV0yBmaJIQh4A4v7lUCKmmeREvVUmW50PDW5UMzRaUlRFRjI0N01LMERVWjdPQlY5ODlUWS4u&route=shorturl" class="link-button" target="_blank" rel="noopener"><i class="fas fa-user-plus"></i><span>Ainda sem cadastro? Preencha – Clique Aqui</span></a>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
 
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-layer-group"></i>
-            CMC Painéis Estratégicos para Acompanhamentos:
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://compartilhacmc-commits.github.io/pendenciasgeral/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Geral</span>
-            </a>
-            
-             <a href="https://compartilhacmc-commits.github.io/consolidadoagendados/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Consolidado Geral/ Agendamentos Consulta Especializada</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/ofertacmc/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Oferta CMC</span>
-            </a>
+        <!-- ABA CIRURGIA ELETIVA -->
+        <div class="tab-content" id="tab-cirurgia">
+          <div class="categories-grid">
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-chart-pie"></i> Painél Cirurgia Eletiva</h2>
+              <div class="links-grid">
+                <a href="https://regulacaoconsolidados-dot.github.io/cirurgiaseletivas/" class="link-button primary-button" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i><span>Painél Cirurgia Eletiva</span></a>
+                <a href="https://regulacaoconsolidados-dot.github.io/cirurgiaeletivadiretoria/" class="link-button primary-button" target="_blank" rel="noopener"><i class="fas fa-chart-bar"></i><span>Painél Cirurgia Eletiva Diretoria</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1yX5uIgoUNqXJDG6hYxOLjZfYueviAa6M/edit?gid=1716569787#gid=1716569787" class="link-button" target="_blank" rel="noopener"><i class="fas fa-database"></i><span>Banco de dados que alimenta o painél cirurgias eletivas</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1ax8ZpVRSZnDkTm_T1GY37ybSgrlP_8Rk/edit?gid=1716569787#gid=1716569787" class="link-button" target="_blank" rel="noopener"><i class="fas fa-database"></i><span>Banco de dados que alimenta o painél cirurgias eletivas diretoria</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-table"></i> Planilhas para Consolidar os Dados</h2>
+              <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1QE3yWrmgUm_EyzOG5zC7GB_XOH5k2IXEO9r0XabW4Bo/edit?gid=537625325#gid=537625325" class="link-button" target="_blank" rel="noopener"><i class="fas fa-list-ol"></i><span>Fila de espera cirurgia eletiva</span></a>
+                <a href="https://docs.google.com/spreadsheets/d/1ainEQfcuZxWGBgWfjJpzh6TbljRMkgKAvrNOJSyTLls/edit?gid=1545210975#gid=1545210975" class="link-button" target="_blank" rel="noopener"><i class="fas fa-calendar"></i><span>Consolidado 2025</span></a>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
 
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-layer-group"></i>
-            PENDÊNCIAS POR DISTRITO:
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://compartilhacmc-commits.github.io/distritoeldorado/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Eldorado</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritoeldorado/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Sede</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritovargemdasflores/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Vargem das Flores</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritonacional/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Nacional</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritoressaca/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Ressaca</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritoindustrial/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Industrial</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritopetrolandia/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Petrolândia</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/distritoriacho/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-chart-bar"></i>
-              <span>Pendências Riacho</span>
-            </a>
+        <!-- ABA EXAMES MÉDIA COMPLEXIDADE -->
+        <div class="tab-content" id="tab-exames">
+          <div class="categories-grid">
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-folder-open"></i> Arquivos Exames</h2>
+              <div class="links-grid">
+                <a href="https://docs.google.com/spreadsheets/d/1s_HDG2-eBdYVaHdw_4e2q2ORuUePdZuLJQmIT7Z-esI/edit?pli=1&gid=0#gid=0" class="link-button" target="_blank" rel="noopener"><i class="fas fa-ban"></i><span>Exames sem prestador</span></a>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
 
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-sitemap"></i>
-            PÁGINAS DIRETORIA DE REGULAÇÃO/CMC:
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://compartilhacmc-commits.github.io/p-ginadistritoeldorado/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Eldorado</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritonacional/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Nacional</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritopetrolandia/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Petrolândia</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginasede/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Sede</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritoressaca/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Ressaca</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritoriacho/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Riacho</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritoindustrial/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Industrial</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/paginadistritovargem/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Página Distrito Vargem</span>
-            </a>
+        <!-- ABA CARDIOLOGIA -->
+        <div class="tab-content" id="tab-cardiologia">
+          <div class="categories-grid">
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-chart-pie"></i> Painél Cardiologia</h2>
+              <div class="links-grid">
+                <a href="#" class="link-button disabled" target="_blank" rel="noopener" onclick="return false;"><i class="fas fa-chart-bar"></i><span>Painél Cardiologia (em construção)</span></a>
+                <a href="#" class="link-button disabled" target="_blank" rel="noopener" onclick="return false;"><i class="fas fa-database"></i><span>Banco de dados que alimenta o painél (em construção)</span></a>
+              </div>
+            </section>
+            <section class="category-section">
+              <h2 class="category-title"><i class="fas fa-table"></i> Planilhas para Consolidar os Dados</h2>
+              <div class="links-grid">
+                <a href="#" class="link-button disabled" target="_blank" rel="noopener" onclick="return false;"><i class="fas fa-spinner"></i><span>Em breve</span></a>
+              </div>
+            </section>
           </div>
-        </section>
-
-        <!-- Telefones Úteis -->
-        <section class="category-section" id="telefones-uteis">
-          <h2 class="category-title">
-            <i class="fas fa-phone-alt"></i>
-            Telefones Úteis
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/CEAPS_TELEFONES.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones Ceaps</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_IRIA_DINIZ.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones Iria Diniz</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_CCE_OUTROS.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones CCE´s e Outros</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_DIVERSOS.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones Diversos</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_UNIDADES_DE_CONTAGEM.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones – Todas as Unidades</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/DISTRITOS_CONTATOS.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones Todos os Distritos</span>
-            </a>
-
-            <a href="https://compartilhacmc-commits.github.io/arquivosfixos/UPA_TELEFONES.html" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-phone-square"></i>
-              <span>Telefones Upas</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- Feluma -->
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-laptop-medical"></i>
-            Feluma
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://portal.contagem.mg.gov.br/imgeditor/file/Regula%C3%A7%C3%A3o/Central%20de%20marca%C3%A7%C3%A3o/NT%2025%20-%202025%20-%20Regula%C3%A7%C3%A3o%20de%20Consultas%20Especializadas%20via%20sistema%20VIVVER.pdf" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-file-pdf"></i>
-              <span>NT-25/2025 – Teleconsultoria Regulação</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/central-de-marcacao-de-consultas/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-file-medical-alt"></i>
-              <span>Notas Técnicas – Diretoria de Regulação</span>
-            </a>
-
-            <a href="https://portal-feluma.sydle.com/home" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-globe"></i>
-              <span>Para Acessar a Plataforma – Clique Aqui</span>
-            </a>
-
-            <a href="https://www.youtube.com/watch?v=1UdBOCDlIvA" class="link-button" target="_blank" rel="noopener">
-              <i class="fab fa-youtube"></i>
-              <span>Para Assistir o Tutorial – Youtube (3min.)</span>
-            </a>
-
-            <a href="https://forms.office.com/pages/responsepage.aspx?id=6TkneO0BV0yBmaJIQh4A4v7lUCKmmeREvVUmW50PDW5UMzRaUlRFRjI0N01LMERVWjdPQlY5ODlUWS4u&route=shorturl" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-user-plus"></i>
-              <span>Ainda sem cadastro? Preencha – Clique Aqui</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- Exames -->
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-microscope"></i>
-            Exames
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://docs.google.com/spreadsheets/d/1Xra6v8JSul5QdI5FLfnlRvPoxO7DrYvIDrWOliaL2r8/edit?pli=1&gid=0#gid=0" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-key"></i>
-              <span>Códigos Autorização de AIH</span>
-            </a>
-
-            <a href="https://docs.google.com/spreadsheets/d/1s_HDG2-eBdYVaHdw_4e2q2ORuUePdZuLJQmIT7Z-esI/edit?pli=1&gid=0#gid=0" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-ban"></i>
-              <span>Exames sem Prestador</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- Links Importantes (mantido) -->
-        <section class="category-section">
-          <h2 class="category-title">
-            <i class="fas fa-link"></i>
-            Links Importantes
-          </h2>
-
-          <div class="links-grid">
-            <a href="https://www.contagem-mg.vivver.com/desktop" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-desktop"></i>
-              <span>Sistema Vivver</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/nota-tecnica" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-file-medical"></i>
-              <span>Notas Técnicas Diretoria de Regulação</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-building"></i>
-              <span>Prefeitura de Contagem</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/secretaria-de-saude" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-hospital"></i>
-              <span>Portal da Secretaria de Saude Contagem</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/portal/paginas-dinamicas-categoria/15/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-user-tie"></i>
-              <span>Portal do Servidor</span>
-            </a>
-
-            <a href="https://geoprocessamento.contagem.mg.gov.br/portal/apps/sites/#/geocontagem" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-mobile-alt"></i>
-              <span>Aplicativos /Contagem</span>
-            </a>
-
-            <a href="https://geoprocessamento.contagem.mg.gov.br/portal/apps/experiencebuilder/experience/?id=1cc51ed1bb7546e092ecad2935cc425d" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-pills"></i>
-              <span>Aqui tem /Remédio</span>
-            </a>
-
-            <a href="https://portal.contagem.mg.gov.br/atencao-primaria" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-map-marked-alt"></i>
-              <span>Endereço das /Unidades</span>
-            </a>
-
-            <a href="https://geoprocessamento.contagem.mg.gov.br/portal/apps/webappviewer/index.html?id=a29dd6c9d5944c51998c3ffa1efe0c70" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-map-pin"></i>
-              <span>Equipamentos da Saúde de Contagem</span>
-            </a>
-
-            <a href="https://cadastro.saude.gov.br/segcartao/?contextType=external&username=string&contextValue=%2Foam&password=sercure_string&challenge_url=https%3A%2F%2Fcadastro.saude.gov.br%2Fsegcartao&request_id=-8519814493389994660&authn_try_count=0&locale=es_ES&resource_url" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-id-card"></i>
-              <span>CadWeb</span>
-            </a>
-
-            <a href="https://cnesadm.datasus.gov.br/cnesadm/publico/usuarios/cadastro" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-search"></i>
-              <span>Pesquisa do CNS</span>
-            </a>
-
-            <a href="https://app.powerbi.com/view?r=eyJrIjoiYTRiZDcyZWYtMzAwNS00NmYyLTk3N2EtYWEwYTk2NTFhMmY1IiwidCI6ImFlODYzMzdlLTU3NWUtNDMzMC05NDc2LTkzZGU2ODJiMDAyMCJ9" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>Pesquisa por endereço</span>
-            </a>
-
-            <a href="https://egestoraps.saude.gov.br/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-laptop"></i>
-              <span>E gestor</span>
-            </a>
-
-            <a href="https://cnes.datasus.gov.br/pages/estabelecimentos/consulta.jsp" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-database"></i>
-              <span>Cnes</span>
-            </a>
-
-            <a href="http://sigtap.datasus.gov.br/tabela-unificada/app/sec/inicio.jsp" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-table"></i>
-              <span>Tabela Sigtap</span>
-            </a>
-
-            <a href="https://siscan.saude.gov.br/login.jsf" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-ribbon"></i>
-              <span>Siscan</span>
-            </a>
-
-            <a href="https://notifica.saude.gov.br/login" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-bell"></i>
-              <span>Esus Notifica</span>
-            </a>
-
-            <a href="https://crmmg.org.br/" class="link-button" target="_blank" rel="noopener">
-              <i class="fas fa-user-md"></i>
-              <span>CRM</span>
-            </a>
-          </div>
-        </section>
-
+        </div>
       </div>
     </div>
   </main>
@@ -656,25 +222,6 @@
     </div>
   </footer>
 
-  <script>
-    // Função de busca simples
-    document.getElementById('searchInput').addEventListener('keyup', function() {
-      let searchText = this.value.toLowerCase();
-      let links = document.querySelectorAll('.link-button');
-      
-      links.forEach(function(link) {
-        let text = link.textContent.toLowerCase();
-        if(text.includes(searchText)) {
-          link.style.display = 'flex';
-        } else {
-          link.style.display = 'none';
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
