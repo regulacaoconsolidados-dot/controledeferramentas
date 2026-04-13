@@ -217,6 +217,39 @@ body {
   color: #2563eb;
 }
 
+/* ESTILO CORRIGIDO DO PARÁGRAFO DE INFORMAÇÃO - AQUI ESTÁ A CORREÇÃO! */
+.info-note {
+  background: linear-gradient(135deg, #fef3c7 0%, #fffbeb 100%);
+  border-left: 5px solid #f59e0b;
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+  color: #92400e;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.15);
+}
+
+.info-note i {
+  font-size: 22px;
+  color: #f59e0b;
+  animation: pulseIcon 2s infinite;
+}
+
+.info-note span {
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+@keyframes pulseIcon {
+  0% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+/* Links Grid */
 .links-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -326,6 +359,13 @@ body {
     min-width: 200px;
   }
   .category-title {
+    font-size: 18px;
+  }
+  .info-note {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+  .info-note i {
     font-size: 18px;
   }
 }
