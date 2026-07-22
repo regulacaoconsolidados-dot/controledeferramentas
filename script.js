@@ -2,9 +2,8 @@
   'use strict';
 
   // ============================================
-  // 1. SISTEMA DE LOGIN (SENHA OFUSCADA)
+  // 1. SISTEMA DE LOGIN
   // ============================================
-  // Codificada em Base64: NjM5MTI0OQ==
   const SENHA_CODIFICADA = 'NjM5MTI0OQ=='; 
   
   const loginOverlay = document.getElementById('login-overlay');
