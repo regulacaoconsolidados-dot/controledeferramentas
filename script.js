@@ -2,9 +2,12 @@
   'use strict';
 
   // ============================================
-  // 1. SISTEMA DE LOGIN (SENHA: 6391249)
+  // 1. SISTEMA DE LOGIN (SENHA OFUSCADA)
   // ============================================
-  const SENHA_CORRETA = '6391249';
+  // Senha original: 6391249
+  // Codificada em Base64: NjM5MTI0OQ==
+  const SENHA_CODIFICADA = 'NjM5MTI0OQ=='; 
+  
   const loginOverlay = document.getElementById('login-overlay');
   const mainContent = document.getElementById('main-content');
   const senhaInput = document.getElementById('senha-input');
@@ -14,7 +17,8 @@
 
   function fazerLogin() {
     const senha = senhaInput.value.trim();
-    if (senha === SENHA_CORRETA) {
+    // Codifica a senha digitada e compara com a armazenada
+    if (btoa(senha) === SENHA_CODIFICADA) {
       loginOverlay.style.display = 'none';
       mainContent.style.display = 'block';
       loginError.textContent = '';
@@ -216,13 +220,11 @@
     console.log('✅ Portal Ferramentas Administrativas carregado com sucesso!');
   }
 
-  // Aguarda o DOM e também verifica se o login já foi feito (caso a página recarregue)
+  // Aguarda o DOM e também verifica se o login já foi feito
   document.addEventListener('DOMContentLoaded', () => {
-    // Se o login já estiver sido feito (mainContent visível), inicializa
     if (mainContent.style.display !== 'none') {
       init();
     } else {
-      // Senão, aguarda o login
       const checkLogin = setInterval(() => {
         if (mainContent.style.display !== 'none') {
           clearInterval(checkLogin);
