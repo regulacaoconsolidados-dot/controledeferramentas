@@ -1,7 +1,141 @@
 (function() {
   'use strict';
 
-  // Dados estáticos de Telefones Úteis e Links Importantes
+  // ============================================
+  // 1. SISTEMA DE LOGIN (SENHA: 6391249)
+  // ============================================
+  const SENHA_CORRETA = '6391249';
+  const loginOverlay = document.getElementById('login-overlay');
+  const mainContent = document.getElementById('main-content');
+  const senhaInput = document.getElementById('senha-input');
+  const btnLogin = document.getElementById('btn-login');
+  const loginError = document.getElementById('login-error');
+  const toggleSenha = document.getElementById('toggle-senha');
+
+  function fazerLogin() {
+    const senha = senhaInput.value.trim();
+    if (senha === SENHA_CORRETA) {
+      loginOverlay.style.display = 'none';
+      mainContent.style.display = 'block';
+      loginError.textContent = '';
+      senhaInput.value = '';
+    } else {
+      loginError.textContent = '❌ Senha incorreta. Tente novamente.';
+      senhaInput.value = '';
+      senhaInput.focus();
+    }
+  }
+
+  // Eventos do login
+  btnLogin.addEventListener('click', fazerLogin);
+  senhaInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') fazerLogin();
+  });
+
+  // Mostrar/ocultar senha
+  toggleSenha.addEventListener('click', () => {
+    const isPassword = senhaInput.type === 'password';
+    senhaInput.type = isPassword ? 'text' : 'password';
+    toggleSenha.querySelector('i').className = isPassword ? 'fas fa-eye' : 'fas fa-eye-slash';
+  });
+
+  // ============================================
+  // 2. SISTEMA DE ABAS
+  // ============================================
+  function initTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    function switchTab(tabId) {
+      contents.forEach(c => c.classList.remove('active'));
+      tabBtns.forEach(b => b.classList.remove('active'));
+
+      const target = document.getElementById(`tab-${tabId}`);
+      const activeBtn = Array.from(tabBtns).find(b => b.dataset.tab === tabId);
+      if (target) target.classList.add('active');
+      if (activeBtn) activeBtn.classList.add('active');
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.tab;
+        switchTab(tabId);
+      });
+    });
+  }
+
+  // ============================================
+  // 3. BUSCA GLOBAL
+  // ============================================
+  function initGlobalSearch() {
+    const globalSearchInput = document.querySelector('.global-search-input');
+    if (!globalSearchInput) return;
+
+    function performGlobalSearch() {
+      const term = globalSearchInput.value.toLowerCase().trim();
+      const allTabContents = document.querySelectorAll('.tab-content');
+
+      if (term === '') {
+        allTabContents.forEach(tabContent => {
+          const sections = tabContent.querySelectorAll('.category-section');
+          const allLinks = tabContent.querySelectorAll('.link-button');
+          sections.forEach(s => s.style.display = 'block');
+          allLinks.forEach(l => l.style.display = 'flex');
+        });
+        return;
+      }
+
+      allTabContents.forEach(tabContent => {
+        const sections = tabContent.querySelectorAll('.category-section');
+        let tabHasVisibleItems = false;
+
+        sections.forEach(section => {
+          const title = section.querySelector('.category-title')?.textContent.toLowerCase() || '';
+          const links = section.querySelectorAll('.link-button');
+          let sectionHasVisible = false;
+
+          links.forEach(link => {
+            const text = link.textContent.toLowerCase();
+            if (text.includes(term) || title.includes(term)) {
+              link.style.display = 'flex';
+              sectionHasVisible = true;
+              tabHasVisibleItems = true;
+            } else {
+              link.style.display = 'none';
+            }
+          });
+
+          section.style.display = (sectionHasVisible || title.includes(term)) ? 'block' : 'none';
+        });
+      });
+    }
+
+    globalSearchInput.addEventListener('input', performGlobalSearch);
+    globalSearchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        globalSearchInput.value = '';
+        performGlobalSearch();
+        globalSearchInput.blur();
+      }
+    });
+  }
+
+  // ============================================
+  // 4. EFEITO NOS BOTÕES
+  // ============================================
+  function initButtonEffects() {
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.link-button');
+      if (btn && !btn.classList.contains('disabled')) {
+        btn.style.transform = 'scale(0.98)';
+        setTimeout(() => btn.style.transform = '', 120);
+      }
+    });
+  }
+
+  // ============================================
+  // 5. INJEÇÃO DOS BLOCOS FIXOS (Telefones e Links)
+  // ============================================
   const TELEFONES_DATA = {
     title: 'Telefones Úteis',
     icon: 'fa-phone-alt',
@@ -44,6 +178,7 @@
   function criarSection(data) {
     const section = document.createElement('section');
     section.className = 'category-section';
+    section.setAttribute('data-permanent', 'true');
     section.innerHTML = `
       <h2 class="category-title"><i class="fas ${data.icon}"></i> ${data.title}</h2>
       <div class="links-grid">
@@ -58,126 +193,43 @@
     return section;
   }
 
-  // Injeta os blocos fixos em todas as abas
   function injectPermanentSections() {
     const containers = document.querySelectorAll('.tab-content .categories-grid');
     containers.forEach(grid => {
-      // Verifica se já foram adicionados para evitar duplicação
-      if (!grid.querySelector('[data-permanent="telefones"]')) {
+      if (!grid.querySelector('[data-permanent="true"]')) {
         const telefonesSection = criarSection(TELEFONES_DATA);
-        telefonesSection.setAttribute('data-permanent', 'telefones');
-        grid.appendChild(telefonesSection);
-      }
-      if (!grid.querySelector('[data-permanent="importantes"]')) {
         const importantesSection = criarSection(IMPORTANTES_DATA);
-        importantesSection.setAttribute('data-permanent', 'importantes');
+        grid.appendChild(telefonesSection);
         grid.appendChild(importantesSection);
       }
     });
   }
 
-  // Sistema de abas
-  function initTabs() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
-
-    function switchTab(tabId) {
-      contents.forEach(c => c.classList.remove('active'));
-      tabBtns.forEach(b => b.classList.remove('active'));
-
-      const target = document.getElementById(`tab-${tabId}`);
-      const activeBtn = Array.from(tabBtns).find(b => b.dataset.tab === tabId);
-      if (target) target.classList.add('active');
-      if (activeBtn) activeBtn.classList.add('active');
-    }
-
-    tabBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const tabId = btn.dataset.tab;
-        switchTab(tabId);
-      });
-    });
-  }
-
-  // Busca GLOBAL (centralizada) que filtra em todas as abas dinamicamente
-  function initGlobalSearch() {
-    const globalSearchInput = document.querySelector('.global-search-input');
-    if (!globalSearchInput) return;
-
-    function performGlobalSearch() {
-      const term = globalSearchInput.value.toLowerCase().trim();
-      const allTabContents = document.querySelectorAll('.tab-content');
-      
-      // Se não houver termo, mostra todas as seções e links normalmente
-      if (term === '') {
-        allTabContents.forEach(tabContent => {
-          const sections = tabContent.querySelectorAll('.category-section');
-          const allLinks = tabContent.querySelectorAll('.link-button');
-          sections.forEach(s => s.style.display = 'block');
-          allLinks.forEach(l => l.style.display = 'flex');
-        });
-        return;
-      }
-
-      // Itera sobre cada aba para aplicar o filtro
-      allTabContents.forEach(tabContent => {
-        const sections = tabContent.querySelectorAll('.category-section');
-        let tabHasVisibleItems = false;
-
-        sections.forEach(section => {
-          const title = section.querySelector('.category-title')?.textContent.toLowerCase() || '';
-          const links = section.querySelectorAll('.link-button');
-          let sectionHasVisible = false;
-
-          links.forEach(link => {
-            const text = link.textContent.toLowerCase();
-            if (text.includes(term) || title.includes(term)) {
-              link.style.display = 'flex';
-              sectionHasVisible = true;
-              tabHasVisibleItems = true;
-            } else {
-              link.style.display = 'none';
-            }
-          });
-
-          // Mostra a seção se ela tiver links visíveis ou o título corresponder
-          section.style.display = (sectionHasVisible || title.includes(term)) ? 'block' : 'none';
-        });
-
-        // Opcional: você pode esconder abas vazias, mas por enquanto mantemos
-        // Apenas garantimos que se não houver itens, a aba fica sem conteúdo visível
-      });
-    }
-
-    globalSearchInput.addEventListener('input', performGlobalSearch);
-    globalSearchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        globalSearchInput.value = '';
-        performGlobalSearch();
-        globalSearchInput.blur();
-      }
-    });
-  }
-
-  // Efeito sutil nos botões
-  function initButtonEffects() {
-    document.addEventListener('click', function(e) {
-      const btn = e.target.closest('.link-button');
-      if (btn && !btn.classList.contains('disabled')) {
-        btn.style.transform = 'scale(0.98)';
-        setTimeout(() => btn.style.transform = '', 120);
-      }
-    });
-  }
-
-  // Inicialização
+  // ============================================
+  // 6. INICIALIZAÇÃO
+  // ============================================
   function init() {
-    injectPermanentSections();
     initTabs();
-    initGlobalSearch(); // Substitui a busca por aba
+    initGlobalSearch();
     initButtonEffects();
+    injectPermanentSections();
     console.log('✅ Portal Ferramentas Administrativas carregado com sucesso!');
   }
 
-  document.addEventListener('DOMContentLoaded', init);
+  // Aguarda o DOM e também verifica se o login já foi feito (caso a página recarregue)
+  document.addEventListener('DOMContentLoaded', () => {
+    // Se o login já estiver sido feito (mainContent visível), inicializa
+    if (mainContent.style.display !== 'none') {
+      init();
+    } else {
+      // Senão, aguarda o login
+      const checkLogin = setInterval(() => {
+        if (mainContent.style.display !== 'none') {
+          clearInterval(checkLogin);
+          init();
+        }
+      }, 200);
+    }
+  });
+
 })();
