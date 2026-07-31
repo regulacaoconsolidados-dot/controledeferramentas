@@ -143,7 +143,7 @@
     title: 'Telefones Úteis',
     icon: 'fa-phone-alt',
     links: [
-      { text: 'https://regulacaoconsolidados-dot.github.io/contatosdasubs/' },
+      { text: 'Telefones das UBS´s', url: 'https://regulacaoconsolidados-dot.github.io/contatosdasubs/' },
       { text: 'Telefones Ceaps', url: 'https://compartilhacmc-commits.github.io/arquivosfixos/CEAPS_TELEFONES.html' },
       { text: 'Telefones Iria Diniz', url: 'https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_IRIA_DINIZ.html' },
       { text: 'Telefones CCE´s e Outros', url: 'https://compartilhacmc-commits.github.io/arquivosfixos/TELEFONES_CCE_OUTROS.html' },
