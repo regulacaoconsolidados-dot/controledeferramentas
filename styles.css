@@ -280,27 +280,73 @@ body {
     padding: 24px 24px 30px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
 }
 
+.category-section:hover {
+    box-shadow: 0 8px 25px rgba(26, 95, 122, 0.08);
+    transform: translateY(-2px);
+}
+
+/* ===== TÍTULOS DAS SEÇÕES COM DESTAQUE ===== */
 .category-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #0b3b5c;
-    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid #eef2f6;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0b3b5c;
+    position: relative;
 }
 
-.category-title i {
-    color: #1a5f7a;
-    background: #e8f0fe;
-    padding: 8px 10px;
-    border-radius: 10px;
-    font-size: 1rem;
+.category-title .title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #1a5f7a, #2a7f9c);
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
 }
 
-/* ===== CARDS ===== */
+.category-section:hover .title-icon {
+    transform: rotate(-8deg) scale(1.05);
+    box-shadow: 0 4px 15px rgba(26, 95, 122, 0.3);
+}
+
+.category-title .title-text {
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+.category-title .title-badge {
+    background: linear-gradient(135deg, #1a5f7a, #2a7f9c);
+    color: white;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.category-title .title-badge.warning {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.category-title .title-badge.success {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* ===== CARDS COM ANIMAÇÕES COLORIDAS ===== */
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -324,6 +370,7 @@ body {
     overflow: hidden;
 }
 
+/* Faixa colorida no topo do card - animação */
 .card::before {
     content: '';
     position: absolute;
@@ -351,31 +398,107 @@ body {
     }
 }
 
+/* Cores diferentes para cada card (efeito arco-íris) */
+.card:nth-child(6n+1)::before {
+    background: linear-gradient(90deg, #1a5f7a, #4a9fc7, #1a5f7a);
+}
+
+.card:nth-child(6n+2)::before {
+    background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
+}
+
+.card:nth-child(6n+3)::before {
+    background: linear-gradient(90deg, #059669, #34d399, #059669);
+}
+
+.card:nth-child(6n+4)::before {
+    background: linear-gradient(90deg, #d97706, #fbbf24, #d97706);
+}
+
+.card:nth-child(6n+5)::before {
+    background: linear-gradient(90deg, #dc2626, #f87171, #dc2626);
+}
+
+.card:nth-child(6n+6)::before {
+    background: linear-gradient(90deg, #7c3aed, #8b5cf6, #7c3aed);
+}
+
 .card:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(26, 95, 122, 0.12);
     border-color: rgba(26, 95, 122, 0.15);
 }
 
+/* Ícones coloridos variados */
+.card:nth-child(6n+1) .card-icon-wrapper {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    color: #1a5f7a;
+}
+.card:nth-child(6n+1):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #1a5f7a, #2a7f9c);
+    color: white;
+}
+
+.card:nth-child(6n+2) .card-icon-wrapper {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #7c3aed;
+}
+.card:nth-child(6n+2):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+}
+
+.card:nth-child(6n+3) .card-icon-wrapper {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+}
+.card:nth-child(6n+3):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #059669, #047857);
+    color: white;
+}
+
+.card:nth-child(6n+4) .card-icon-wrapper {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #d97706;
+}
+.card:nth-child(6n+4):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    color: white;
+}
+
+.card:nth-child(6n+5) .card-icon-wrapper {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+}
+.card:nth-child(6n+5):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+}
+
+.card:nth-child(6n+6) .card-icon-wrapper {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #7c3aed;
+}
+.card:nth-child(6n+6):hover .card-icon-wrapper {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+}
+
 .card-icon-wrapper {
     width: 56px;
     height: 56px;
-    background: linear-gradient(135deg, #e8f4fc, #d4e9f7);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    color: #1a5f7a;
     margin-bottom: 14px;
-    transition: all 0.3s;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     flex-shrink: 0;
 }
 
 .card:hover .card-icon-wrapper {
-    background: linear-gradient(135deg, #1a5f7a, #2a7f9c);
-    color: white;
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(-4deg);
 }
 
 .card-title {
@@ -388,6 +511,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 .card-btn {
@@ -399,7 +523,7 @@ body {
     font-weight: 600;
     font-size: 0.8rem;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -411,7 +535,7 @@ body {
 
 .card-btn i {
     font-size: 0.7rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .card:hover .card-btn {
@@ -520,6 +644,7 @@ body {
         gap: 6px;
         overflow-x: auto;
         flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
     }
 
     .tab-btn {
@@ -534,6 +659,26 @@ body {
 
     .category-section {
         padding: 18px 16px 24px;
+    }
+
+    .category-title {
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+    }
+
+    .category-title .title-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .category-title .title-text {
+        font-size: 1rem;
+    }
+
+    .category-title .title-badge {
+        font-size: 0.6rem;
+        padding: 3px 12px;
     }
 
     .card-grid {
@@ -581,5 +726,10 @@ body {
 
     .header-right .creditos {
         font-size: 0.7rem;
+    }
+
+    .category-title .title-badge {
+        font-size: 0.55rem;
+        padding: 2px 10px;
     }
 }
